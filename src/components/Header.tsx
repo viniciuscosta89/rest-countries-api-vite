@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { useTheme } from '../hooks/ThemeContext';
+import { useThemeContext } from '../context/ThemeContext';
 import { HeaderComponent, Container, Title } from '../styles/Header';
 import Button from './Button';
 
 const Header: FC = () => {
-	const { toggleTheme } = useTheme();
+	const { toggleTheme } = useThemeContext();
 
 	const handleClick = () => {
 		toggleTheme();

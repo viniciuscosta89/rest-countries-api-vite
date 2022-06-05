@@ -1,5 +1,4 @@
-import { useCountry } from '../hooks/CountryContext';
-
+import { useCountry } from '../hooks/useCountry';
 import {
 	CountryCardContainer,
 	CountryCardDescription,
@@ -8,62 +7,27 @@ import {
 	CountryCardList,
 	CountryCardName,
 } from '../styles/CountryCard';
+import { slug } from '../utils/slug';
+import { Country } from '../types/countryTypes';
 
 interface CountryCardProps {
 	country: Country;
 }
 
-interface Country {
-	capital: string;
-	currencies: Currency[];
-	flag: string;
-	languages: Language[];
-	name: string;
-	nativeName: string;
-	population: number;
-	region: string;
-	subregion: string;
-	topLevelDomain: string[];
-}
-
-interface Currency {
-	code: string;
-	name: string;
-	symbol: string;
-}
-
-interface Language {
-	iso639_1: string;
-	iso639_2: string;
-	name: string;
-	nativeName: string;
-}
-
 const CountryCard = ({ country }: CountryCardProps) => {
-	const { capital, flag, name, population, region } = country;
+	const { name, flag, population, region, capital } = country;
 
 	const { getCountry } = useCountry();
 
 	const handleCardClick = () => {
-		getCountry(JSON.stringify(country));
+		getCountry(country);
 	};
 
-	const specialAs = /[Ááâàå]/g;
-
-	const slug = name
-		.toLowerCase()
-		.replace(/ /g, '-')
-		.replace(specialAs, 'a')
-		.replace(/[`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-
 	return (
-		<CountryCardLink to={`/country/${encodeURIComponent(slug)}`}>
+		<CountryCardLink to={`/country/${encodeURIComponent(slug(name))}`}>
 			<CountryCardContainer onClick={handleCardClick}>
 				<CountryCardFlag>
-					<img
-						src={flag}
-						alt={`Flag of ${name}`}
-					/>
+					<img src={flag} alt={`Flag of ${name}`} />
 				</CountryCardFlag>
 
 				<CountryCardDescription>

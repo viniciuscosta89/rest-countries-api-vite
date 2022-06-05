@@ -36,3 +36,21 @@ export const CountryDetailList = styled.ul`
 		font-weight: 600;
 	}
 `;
+
+export const CountryDetailSubtitle = styled.h2`
+	color: hsl(${({ theme }) => theme.colors.text});
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-block-end: 2rem;
+`;
+
+export const CountryDetailBorders = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	grid-template-columns: repeat(auto-fit, minmax(min(7rem, 100%), 1fr));
+	gap: 0.5rem;
+
+	> * {
+		flex: 1 1 auto;
+	}
+`;

@@ -39,7 +39,9 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: hsl(${({ theme }) => theme.colors.bg});
     color: hsl(${({ theme }) => theme.colors.text});    
-    font-family: var(--font-main);      
+    font-family: var(--font-main);  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;    
     min-height: 100vh;    
     text-rendering: optimizeSpeed;
     line-height: 1.5;

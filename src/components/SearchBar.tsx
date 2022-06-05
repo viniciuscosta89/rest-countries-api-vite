@@ -1,5 +1,5 @@
 import { SearchContainer } from '../styles/SearchBar';
-import { useCountry } from '../hooks/CountryContext';
+import { useCountry } from '../hooks/useCountry';
 
 export const SearchBar = () => {
 	const { searchCountries } = useCountry();
