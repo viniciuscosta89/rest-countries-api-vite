@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+interface LinkProps {
+	to: Partial<Location> | string;
+	$marginBlockEnd?: string;
+	$padding?: string;
+	$translateTo?: string;
+}
+
 export const ButtonContainer = styled.button`
 	background-color: hsl(${({ theme }) => theme.colors.elements});
 	border: none;
@@ -31,13 +38,13 @@ export const ButtonContainer = styled.button`
 	}
 `;
 
-export const BackButton = styled(Link)`
+export const SquaredButton = styled(Link)<LinkProps>`
 	background-color: hsl(${({ theme }) => theme.colors.elements});
 	border-radius: 2px;
 	box-shadow: 0 0rem 0.5rem rgba(0, 0, 0, 0.25);
 	color: hsl(${({ theme }) => theme.colors.text});
-	margin-block-end: 5rem;
-	padding: 0.5rem 2rem;
+	margin-block-end: ${(props) => props.$marginBlockEnd || '0'};
+	padding: ${(props) => props.$padding || '0.5rem 2rem'};
 	position: relative;
 	display: inline-flex;
 	align-items: center;
@@ -49,7 +56,8 @@ export const BackButton = styled(Link)`
 	transition: var(--transition);
 
 	&:hover {
-		transform: translateX(-0.5rem);
+		box-shadow: ${(props) => (props.$translateTo?.includes('translateY') ? '0 0.5rem 1.5rem rgba(0, 0, 0, 0.25)' : '')};
+		transform: ${(props) => props.$translateTo || 'none'};
 	}
 
 	&:focus {
@@ -63,4 +71,4 @@ export const BackButton = styled(Link)`
 	> * {
 		pointer-events: none;
 	}
-`
+`;
