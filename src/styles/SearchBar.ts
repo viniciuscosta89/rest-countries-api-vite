@@ -12,6 +12,12 @@ export const SearchContainer = styled.div`
 	position: relative;
 	transition: var(--transition);
 
+	@media (min-width: 1280px) {
+		display: inline-flex;
+		margin-block-end: 3rem;
+		min-width: 32rem;
+	}
+
 	svg {
 		fill: hsl(${({ theme }) => theme.colors.text} / 0.25);
 		transition: var(--transition);

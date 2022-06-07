@@ -10,7 +10,7 @@ export const HeaderComponent = styled.header`
 	z-index: 10;
 
 	@media (min-width: 1280px) {
-		padding-block: 1rem;
+		padding-block: 1.5rem;
 	}
 `;
 
@@ -23,6 +23,7 @@ export const Container = styled.div`
 	@media (min-width: 1280px) {
 		margin-inline: auto;
 		max-width: var(--container-desktop);
+		padding-inline: 5rem;
 	}
 `;
 
@@ -31,4 +32,8 @@ export const Title = styled.h1`
 	font-size: 1rem;
 	font-weight: 800;
 	transition: var(--transition);
+
+	@media (min-width: 1280px) {
+		font-size: 1.5rem;
+	}
 `;

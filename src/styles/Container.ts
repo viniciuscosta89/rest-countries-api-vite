@@ -5,4 +5,8 @@ export const Container = styled.div`
 	max-width: var(--container-desktop);
 	padding: 2rem 1.5rem;
 	position: relative;
+
+	@media (min-width: 1280px) {
+		padding: 3rem 5rem;
+	}
 `;

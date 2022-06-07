@@ -9,6 +9,10 @@ export const CountryCardLink = styled(Link)`
 	text-decoration: none;
 	transition: var(--transition);
 
+	@media (min-width: 1280px) {
+		border-radius: 0.25rem;
+	}
+
 	&:hover {
 		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075);
 		cursor: pointer;
@@ -22,19 +26,27 @@ export const CountryCardContainer = styled.div`
 `;
 
 export const CountryCardFlag = styled.picture`
-	border-radius: 0.5rem 0.5rem 0 0;	
+	border-radius: 0.5rem 0.5rem 0 0;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
+
+	@media (min-width: 1280px) {
+		border-radius: 0.25rem 0.25rem 0 0;
+	}
 
 	img {
 		object-fit: cover;
 		object-position: center;
 		position: relative;
 		width: 100%;
-		
-		@media (min-width: 768px) {
+
+		@media (min-width: 768px) and (max-width: 1279px) {
 			height: 12rem;
+		}
+
+		@media (min-width: 1280px) {
+			height: 10rem;
 		}
 	}
 `;
