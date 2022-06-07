@@ -16,6 +16,8 @@ interface CountryProps {
 
 const CountryContext = createContext<CountryContextData>({} as CountryContextData);
 
+export const useCountryContext = () => useContext(CountryContext);
+
 export const CountryProvider: FC<CountryProps> = ({ children }) => {
 	const { country, countries, getCountries, getCountry, searchCountries } = useCountry();
 

@@ -1,4 +1,4 @@
-import { useCountry } from '../hooks/useCountry';
+import { useCountryContext } from '../context/CountryContext';
 import {
 	CountryCardContainer,
 	CountryCardDescription,
@@ -17,7 +17,7 @@ interface CountryCardProps {
 const CountryCard = ({ country }: CountryCardProps) => {
 	const { name, flag, population, region, capital } = country;
 
-	const { getCountry } = useCountry();
+	const { getCountry } = useCountryContext();
 
 	const handleCardClick = () => {
 		getCountry(country);
@@ -27,7 +27,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
 		<CountryCardLink to={`/country/${encodeURIComponent(slug(name))}`}>
 			<CountryCardContainer onClick={handleCardClick}>
 				<CountryCardFlag>
-					<img src={flag} alt={`Flag of ${name}`} />
+					<img src={flag} alt={`Flag of ${name}`} loading="lazy" />
 				</CountryCardFlag>
 
 				<CountryCardDescription>

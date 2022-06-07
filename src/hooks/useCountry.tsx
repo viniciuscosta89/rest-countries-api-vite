@@ -6,20 +6,6 @@ export const useCountry = () => {
 	const [countries, setCountries] = useState<[]>([]);
 
 	const getCountry = (country: Country) => {
-		const hasCountry = JSON.parse(localStorage.getItem('country') || '{}');
-		console.log({ hasCountry, country });
-
-		if (!hasCountry) {
-			setCountry(country);
-			localStorage.setItem('country', JSON.stringify(country));
-			return;
-		}
-
-		if (!country && hasCountry) {
-			setCountry(hasCountry);
-			return;
-		}
-
 		setCountry(country);
 		localStorage.setItem('country', JSON.stringify(country));
 	};

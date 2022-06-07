@@ -2,11 +2,11 @@ import { Helmet } from 'react-helmet-async';
 import CountriesList from '../components/CountriesList';
 import { SearchBar } from '../components/SearchBar';
 import { Container } from '../styles/Container';
-import { useCountry } from '../hooks/useCountry';
+import { useCountryContext } from '../context/CountryContext';
 import { useEffect } from 'react';
 
 const Home = () => {
-	const { countries, getCountries } = useCountry();
+	const { countries, getCountries } = useCountryContext();
 
 	useEffect(() => {
 		getCountries();
