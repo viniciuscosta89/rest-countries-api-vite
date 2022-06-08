@@ -6,7 +6,7 @@ export const CountriesListContainer = styled.div`
 	gap: 3rem;
 	padding-inline: 1rem;
 
-	@media (min-width: 425px) and (max-width: 1279px) {
+	@media (min-width: 375px) and (max-width: 1279px) {
 		padding-inline: 2rem;
 	}
 

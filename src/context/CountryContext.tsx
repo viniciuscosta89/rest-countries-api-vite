@@ -8,6 +8,7 @@ interface CountryContextData {
 	getCountries(): void;
 	getCountry(country: {}): void;
 	searchCountries(country: string): void;
+	getRegionCountries(region: string): void;
 }
 
 interface CountryProps {
@@ -19,10 +20,12 @@ const CountryContext = createContext<CountryContextData>({} as CountryContextDat
 export const useCountryContext = () => useContext(CountryContext);
 
 export const CountryProvider: FC<CountryProps> = ({ children }) => {
-	const { country, countries, getCountries, getCountry, searchCountries } = useCountry();
+	const { country, countries, getCountries, getCountry, getRegionCountries, searchCountries } = useCountry();
 
 	return (
-		<CountryContext.Provider value={{ searchCountries, country, getCountry, countries, getCountries }}>
+		<CountryContext.Provider
+			value={{ searchCountries, country, getCountry, countries, getCountries, getRegionCountries }}
+		>
 			{children}
 		</CountryContext.Provider>
 	);

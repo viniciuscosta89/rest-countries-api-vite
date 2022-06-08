@@ -45,5 +45,16 @@ export const useCountry = () => {
 			});
 	};
 
-	return { country, countries, getCountry, getCountries, searchCountries };
+	const getRegionCountries = (region: string) => {
+		if (region === 'All') {
+			getCountries();
+			return;
+		}
+
+		fetch(`https://restcountries.com/v2/region/${region}`)
+			.then((res) => res.json())
+			.then((data) => setCountries(data));
+	};
+
+	return { country, countries, getCountry, getCountries, getRegionCountries, searchCountries };
 };
