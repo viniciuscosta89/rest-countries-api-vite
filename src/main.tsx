@@ -14,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<HelmetProvider>
 					<Header />
 					<BrowserRouter>
-						<App />
+						<main role="main">
+							<App />
+						</main>
 					</BrowserRouter>
 				</HelmetProvider>
 			</CountryProvider>

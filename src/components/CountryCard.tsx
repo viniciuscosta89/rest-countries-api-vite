@@ -24,28 +24,30 @@ const CountryCard = ({ country }: CountryCardProps) => {
 	};
 
 	return (
-		<CountryCardLink to={`/country/${encodeURIComponent(slug(name))}`}>
-			<CountryCardContainer onClick={handleCardClick}>
-				<CountryCardFlag>
-					<img src={flag} alt={`Flag of ${name}`} loading="lazy" />
-				</CountryCardFlag>
+		<article id={slug(name)}>
+			<CountryCardLink to={`/country/${encodeURIComponent(slug(name))}`}>
+				<CountryCardContainer onClick={handleCardClick}>
+					<CountryCardFlag>
+						<img src={flag} alt={`Flag of ${name}`} loading="lazy" />
+					</CountryCardFlag>
 
-				<CountryCardDescription>
-					<CountryCardName>{name}</CountryCardName>
-					<CountryCardList>
-						<li>
-							<strong>Population:</strong> {new Intl.NumberFormat('en-US').format(population)}
-						</li>
-						<li>
-							<strong>Region:</strong> {region}
-						</li>
-						<li>
-							<strong>Capital:</strong> {capital}
-						</li>
-					</CountryCardList>
-				</CountryCardDescription>
-			</CountryCardContainer>
-		</CountryCardLink>
+					<CountryCardDescription>
+						<CountryCardName>{name}</CountryCardName>
+						<CountryCardList>
+							<li>
+								<strong>Population:</strong> {new Intl.NumberFormat('en-US').format(population)}
+							</li>
+							<li>
+								<strong>Region:</strong> {region}
+							</li>
+							<li>
+								<strong>Capital:</strong> {capital}
+							</li>
+						</CountryCardList>
+					</CountryCardDescription>
+				</CountryCardContainer>
+			</CountryCardLink>
+		</article>
 	);
 };
 

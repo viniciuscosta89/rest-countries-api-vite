@@ -24,6 +24,7 @@ const RegionFilter = ({ label }: SelectProps) => {
 				isClearable={false}
 				isSearchable={false}
 				onChange={(country: any) => handleChange(country)}
+				aria-label={label}
 			/>
 		</SelectContainer>
 	);
