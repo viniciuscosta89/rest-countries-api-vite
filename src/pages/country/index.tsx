@@ -24,7 +24,6 @@ const CountryPage = () => {
 
 	if (!hasCountry) {
 		window.location.href = '/';
-		return;
 	}
 
 	const {
@@ -86,6 +85,7 @@ const CountryPage = () => {
 					</svg>
 					<span>Back</span>
 				</SquaredButton>
+
 				<CountryDetailContainer>
 					<CountryDetailFlag>
 						<img src={flag} alt={`${name} flag`} />
